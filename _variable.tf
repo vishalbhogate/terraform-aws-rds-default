@@ -8,13 +8,11 @@ variable "storage_type" {
 }
 
 variable "engine" {
-  default     = ""
   description = "The name of the database engine that you want to use for this DB instance"
 }
 
 variable "engine_version" {
   description = "The version number of the database engine to use."
-  default     = ""
 }
 
 variable "instance_class" {
@@ -25,7 +23,6 @@ variable "instance_class" {
 variable "name" {
   type        = string
   description = "The name of the database to create when the DB instance is created."
-  default     = ""
 }
 
 variable "family" {
@@ -41,7 +38,6 @@ variable "backup_retention_period" {
 variable "identifier" {
   type        = string
   description = "The name of the RDS instance, if omitted, Terraform will assign a random, unique identifier."
-  default     = ""
 }
 
 variable "username" {
@@ -56,7 +52,7 @@ variable "account_name" {
 
 variable "vpc_security_group_ids" {
   description = "List of VPC security groups to associate"
-  default     = [""]
+  default     = ["sg-0b91a6fe2a4b231cb"]
 }
 
 variable "apply_immediately" {

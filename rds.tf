@@ -6,12 +6,12 @@ resource random_string "rds_apps_passowrd" {
 resource aws_db_instance "default" {
   allocated_storage       = var.allocated_storage
   storage_type            = var.storage_type
-  engine                  = var.engine
+  engine                  = var.snapshot_identifier == "" ? var.engine : null
   engine_version          = var.engine_version
   instance_class          = var.instance_class
   name                    = var.name
   backup_retention_period = var.backup_retention_period
-  identifier              = var.identifier
+  identifier              = var.identifier != "" ? var.identifier : null
   username                = var.username
   password                = random_string.rds_apps_passowrd.result
   parameter_group_name    = aws_db_parameter_group.default.id
@@ -24,7 +24,7 @@ resource aws_db_instance "default" {
 }
 
 resource aws_db_parameter_group "default" {
-  name   = var.name
+  name   = var.name != "" ? var.name : null
   family = var.family
 
   parameter {
