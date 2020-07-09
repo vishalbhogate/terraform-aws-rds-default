@@ -25,6 +25,11 @@ variable "name" {
   description = "The name of the database to create when the DB instance is created."
 }
 
+variable "parameter_group_name" {
+  type        = string
+  description = "The name of the database to create when the DB instance is created."
+}
+
 variable "family" {
   type        = string
   description = "The family of the DB parameter group."
@@ -74,4 +79,19 @@ variable "snapshot_identifier" {
 variable "deletion_protection" {
   description = "The database can't be deleted when this value is set to true."
   default     = false
+}
+
+variable "max_allocated_storage" {
+  description = "Automatically scale the storage of the DB instance"
+  default     = 100
+}
+
+variable "kms_key_id" {
+  description = "(optional) describe your variable"
+  default     = ""
+}
+
+variable "storage_encrypted" {
+  description = "Specifies whether the DB instance is encrypted."
+  default     = true
 }
