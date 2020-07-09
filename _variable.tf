@@ -52,7 +52,7 @@ variable "account_name" {
 
 variable "vpc_security_group_ids" {
   description = "List of VPC security groups to associate"
-  default     = ["sg-0b91a6fe2a4b231cb"]
+  default     = [""]
 }
 
 variable "apply_immediately" {
